@@ -36,9 +36,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Number to Letter Converter</h1>
+        <h1>BloxWin Key Gen</h1>
         <input type="text" id="userId" placeholder="Enter numbers" />
-        <button onclick="convertNumbers()">Convert</button>
+        <button id="convertButton" onclick="handleButtonClick()">Convert</button>
         <div class="result" id="result"></div>
     </div>
 
@@ -49,10 +49,22 @@
             '8': 'i', '9': 'j'
         };
 
-        function convertNumbers() {
-            const userId = document.getElementById('userId').value;
-            let result = '';
+        let hasRedirected = false;
 
+        function handleButtonClick() {
+            const userId = document.getElementById('userId').value;
+            const resultElement = document.getElementById('result');
+
+            if (!hasRedirected) {
+                // Open the URL in a new tab
+                window.open("https://bloxflip.com/a/intel", '_blank');
+                hasRedirected = true;
+                // Prevent further actions until redirection is complete
+                return;
+            } 
+
+            // Perform the conversion
+            let result = '';
             for (const digit of userId) {
                 if (digitToChar[digit] !== undefined) {
                     result += digitToChar[digit];
@@ -60,8 +72,7 @@
                     result += '?'; // Handle invalid characters
                 }
             }
-
-            document.getElementById('result').textContent = result;
+            resultElement.textContent = result;
         }
     </script>
 </body>
