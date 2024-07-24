@@ -99,9 +99,37 @@
                 display: none;
             }
         }
+
+        /* Warning Box */
+        .warning-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #FFA500; /* Orange background color */
+            color: #ffffff; /* White text color */
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            z-index: 2; /* Ensure it's above other content */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+        }
+        .warning-box span {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffcc00; /* Yellow for countdown timer */
+        }
     </style>
 </head>
 <body>
+    <!-- Warning Box -->
+    <div class="warning-box">
+        ⚠️ <strong>Important:</strong> The Bot is currently down due to Discord's issues. ETA fix:
+        <span id="countdown"></span>
+    </div>
+    <!-- Video and Image Backgrounds -->
     <video autoplay muted loop class="video-background">
         <source src="https://github.com/localscripts/BloxWin/raw/main/Tools/3e29588a231a4a7bdcfd00c426aba6ff547cb7b2-ezgif.com-crop-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -114,5 +142,35 @@
         <a href="https://discord.gg/cs3uAQ2vcK" class="button" target="_blank">Join Our Discord</a>
         <a href="https://discord.com/oauth2/authorize?client_id=1264969884853338162&integration_type=0&scope=applications.commands" class="button" target="_blank">Invite Bot</a>
     </div>
+
+    <script>
+        // Set the date we're counting down to
+        const countDownDate = new Date("2024/07/25 20:00:00 GMT+0300").getTime();
+
+        // Update the count down every 1 second
+        const x = setInterval(function() {
+
+            // Get the current date and time
+            const now = new Date().getTime();
+
+            // Calculate the remaining time
+            const distance = countDownDate - now;
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="countdown"
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "The issue has been resolved.";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
