@@ -1,141 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BloxLose - Homepage</title>
-    <link rel="icon" href="https://github.com/localscripts/BloxLose/blob/main/Tools/46591-aquaannoyed.png?raw=true" type="image/png">
-    
-    <!-- Open Graph meta tags for embedding -->
-    <meta property="og:title" content="#1 Free to use BloxFlip Guesser!">
-    <meta property="og:description" content="Get your free BloxLose key now and start guessing your wins! Join our Discord community support.">
-    <meta property="og:image" content="https://github.com/localscripts/BloxLose/blob/main/Tools/46591-aquaannoyed.png?raw=true">
-    <meta property="og:url" content="https://yourwebsiteurl.com">
-    <meta property="og:type" content="website">
-    <meta name="theme-color" content="#87ceeb">
+    <title>Loading...</title>
+    <link rel="icon" href="https://github.com/localscripts/BloxLose/blob/main/Tools/BloxLoseClear.png?raw=true" type="image/png">
 
+    <!-- Include Titillium Web font -->
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Internal CSS -->
     <style>
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+        body, html {
             margin: 0;
-            background-color: #f0f8ff;
-            color: #87ceeb;
-            position: relative;
-            overflow: hidden;
-        }
-        .video-background, .image-background {
-            position: absolute;
-            top: 0;
-            left: 0;
+            padding: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            transform: scale(1);
-        }
-        .container {
-            text-align: center;
-            z-index: 1;
-            background-color: #ffffff;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border: 3px solid #87ceeb;
-            max-width: 600px;
-            width: 90%;
-        }
-        h1 {
-            color: #87ceeb;
-        }
-        .button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            color: #ffffff;
-            background-color: #87ceeb;
-            border: 2px solid #87ceeb;
-            border-radius: 10px;
-            transition: background-color 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            margin: 10px;
-        }
-        .button:hover {
-            background-color: #4b0082;
-        }
-        .discord-link {
-            margin-top: 20px;
-            font-size: 16px;
-        }
-        .discord-link a {
-            color: #87ceeb;
-            text-decoration: none;
-        }
-        .discord-link a:hover {
-            text-decoration: underline;
+            background-color: #121212; /* Changed to #121212 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Titillium Web', sans-serif;
         }
 
-        /* Mobile background image */
-        @media (max-width: 768px) {
-            .video-background {
-                display: none;
-            }
-            .image-background {
-                display: block;
-            }
-        }
-
-        /* Desktop background video */
-        @media (min-width: 769px) {
-            .video-background {
-                display: block;
-            }
-            .image-background {
-                display: none;
-            }
-        }
-
-        /* Warning Box */
-        .warning-box {
-            position: absolute;
-            top: 0;
-            left: 0;
+        #loading-container {
+            opacity: 1;
+            transition: opacity 1s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
-            background-color: #008000; /* Green background color */
-            color: #ffffff; /* White text color */
-            text-align: center;
-            padding: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            z-index: 2; /* Ensure it's above other content */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+            height: 100%;
+        }
+
+        #loading-container img {
+            width: 66.67%;
+            animation: zoomInOut 3s infinite;
+        }
+
+        @keyframes zoomInOut {
+            0% { transform: scale(0.5); }
+            50% { transform: scale(0.75); }
+            100% { transform: scale(0.5); }
         }
     </style>
 </head>
 <body>
-    <!-- Warning Box -->
-    <div class="warning-box">
-        ✅ <strong>Notice:</strong> The Bot is now up with a HUGE update!
+    <!-- Loading Screen -->
+    <div id="loading-container">
+        <img src="https://github.com/localscripts/BloxLose/blob/main/Tools/Loading.png?raw=true" alt="Loading">
     </div>
-    <!-- Video and Image Backgrounds -->
-    <video autoplay muted loop class="video-background">
-        <source src="https://github.com/localscripts/BloxLose/raw/main/Tools/3e29588a231a4a7bdcfd00c426aba6ff547cb7b2-ezgif.com-crop-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <img src="https://github.com/localscripts/BloxLose/blob/main/Tools/mobile.png?raw=true" alt="Mobile Background" class="image-background">
-    <div class="container">
-        <h1>Welcome to BloxLose!</h1>
-        <p>Get your free BloxLose key and start guessing your wins with our free BloxFlip guesser tool!</p>
-        <a href="https://localscripts.github.io/BloxLose/Tools/Key" class="button" target="_blank">Get Key</a>
-        <a href="https://localscripts.github.io/BloxLose/Tools/Commands" class="button" target="_blank">Commands</a>
-        <a href="https://discord.gg/cs3uAQ2vcK" class="button" target="_blank">BOT's Discord</a>
-        <a href="https://localscripts.github.io/BloxLose/Tools/Invite" class="button" target="_blank">Invite the BOT</a>
-    </div>
+
+    <script>
+        // Redirect after 3 seconds
+        setTimeout(() => {
+            window.location.href = "https://discord.gg/AzgSjgyBXq";
+        }, 3000); // Redirect after 3 seconds
+    </script>
 </body>
 </html>
